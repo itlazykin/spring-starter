@@ -1,12 +1,13 @@
 package com.dmdev.spring;
 
-import com.dmdev.spring.ioc.Container;
-import com.dmdev.spring.service.UserService;
+import com.dmdev.spring.database.pool.ConnectionPool;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ApplicationRunner {
 
     public static void main(String[] args) {
-        var container = new Container();
-        var userService = container.get(UserService.class);
+        var context = new ClassPathXmlApplicationContext("application.xml");
+        ConnectionPool connectionPool = context.getBean("pool2", ConnectionPool.class);
+        System.out.println(connectionPool);
     }
 }

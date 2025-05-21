@@ -7,7 +7,7 @@ public class ApplicationRunner {
 
     public static void main(String[] args) {
         var context = new ClassPathXmlApplicationContext("application.xml");
-        ConnectionPool connectionPool = context.getBean("pool2", ConnectionPool.class);
+        ConnectionPool connectionPool = context.getBean("p1", ConnectionPool.class);
         System.out.println(connectionPool);
     }
 }

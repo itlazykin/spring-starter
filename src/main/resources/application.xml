@@ -22,13 +22,20 @@
                 <ref bean="driver"/>
             </list>
         </constructor-arg>
-
-        <constructor-arg name="properties" type="java.util.Map">
-            <util:map>
+        <property name="properties">
+            <map>
                 <entry key="url" value="postgresurl"/>
                 <entry key="password" value="123"/>
                 <entry key="driver" value-ref="driver"/>
-            </util:map>
+            </map>
+        </property>
+
+        <constructor-arg name="properties" type="java.util.Map">
+            <map>
+                <entry key="url" value="postgresurl"/>
+                <entry key="password" value="123"/>
+                <entry key="driver" value-ref="driver"/>
+            </map>
         </constructor-arg>
 
     </bean>

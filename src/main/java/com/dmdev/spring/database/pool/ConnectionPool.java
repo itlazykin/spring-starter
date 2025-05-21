@@ -20,4 +20,12 @@ public class ConnectionPool {
     public void setProperties(Map<String, Object> properties) {
         this.properties = properties;
     }
+
+    private void init() {
+        System.out.println("Initializing connection pool...");
+    }
+
+    private void destroy() {
+        System.out.println("Destroying connection pool...");
+    }
 }

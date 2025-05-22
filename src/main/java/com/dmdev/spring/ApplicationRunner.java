@@ -15,7 +15,7 @@ public class ApplicationRunner {
         System.out.println(BeanFactory.class.isAssignableFrom(value.getClass()));
         System.out.println(Serializable.class.isAssignableFrom(value.getClass()));
         try (var context = new ClassPathXmlApplicationContext("application.xml")) {
-            ConnectionPool connectionPool = context.getBean("p1", ConnectionPool.class);
+            ConnectionPool connectionPool = context.getBean("pool1", ConnectionPool.class);
             System.out.println(connectionPool);
             CrudRepository companyRepository = context.getBean("companyRepository", CrudRepository.class);
             System.out.println(companyRepository.findById(1));

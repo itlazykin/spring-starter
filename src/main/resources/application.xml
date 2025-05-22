@@ -11,6 +11,10 @@
 
     <context:property-placeholder location="classpath:application.properties"/>
 
+    <bean class="com.dmdev.spring.bpp.InjectBeanPostProcessor"/>
+    <bean class="com.dmdev.spring.bpp.TransactionBeanPostProcessor"/>
+    <bean class="com.dmdev.spring.bpp.AuditingBeanPostProcessor"/>
+
     <bean class="com.dmdev.spring.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="com.dmdev.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
 
@@ -56,8 +60,6 @@
 
     </bean>
 
-    <bean id="companyRepository" class="com.dmdev.spring.database.repository.CompanyRepository" factory-method="of">
-        <constructor-arg ref="pool1"/>
-    </bean>
+    <bean id="companyRepository" class="com.dmdev.spring.database.repository.CompanyRepository"/>
 
 </beans>

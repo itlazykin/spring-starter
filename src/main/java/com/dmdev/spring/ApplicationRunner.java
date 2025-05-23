@@ -1,9 +1,10 @@
 package com.dmdev.spring;
 
+import com.dmdev.spring.config.ApplicationConfiguration;
 import com.dmdev.spring.database.pool.ConnectionPool;
 import com.dmdev.spring.database.repository.CrudRepository;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.Serializable;
 
@@ -14,7 +15,7 @@ public class ApplicationRunner {
         System.out.println(CharSequence.class.isAssignableFrom(value.getClass()));
         System.out.println(BeanFactory.class.isAssignableFrom(value.getClass()));
         System.out.println(Serializable.class.isAssignableFrom(value.getClass()));
-        try (var context = new ClassPathXmlApplicationContext("application.xml")) {
+        try (var context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class)) {
             ConnectionPool connectionPool = context.getBean("pool1", ConnectionPool.class);
             System.out.println(connectionPool);
             CrudRepository companyRepository = context.getBean("companyRepository", CrudRepository.class);

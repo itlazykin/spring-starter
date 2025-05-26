@@ -2,7 +2,6 @@ package com.dmdev.spring;
 
 import com.dmdev.spring.config.ApplicationConfiguration;
 import com.dmdev.spring.database.pool.ConnectionPool;
-import com.dmdev.spring.database.repository.CrudRepository;
 import com.dmdev.spring.service.CompanyService;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

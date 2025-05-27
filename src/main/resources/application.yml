@@ -23,5 +23,5 @@ spring.profiles.active: qa
 
 logging:
   level:
-    root: warn
+    root: WARN
     com.dmdev.spring.database.pool: INFO

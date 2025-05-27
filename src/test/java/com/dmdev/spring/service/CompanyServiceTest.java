@@ -35,10 +35,13 @@ class CompanyServiceTest {
     void whenGetCompanyByIdThenReturnCompany() {
         doReturn(Optional.of(new Company(COMPANY_ID)))
                 .when(companyRepository).findById(COMPANY_ID);
+
         var actualResult = companyService.findById(COMPANY_ID);
+
         assertTrue(actualResult.isPresent());
         var expectedResult = new CompanyReadDto(COMPANY_ID);
         actualResult.ifPresent(actual -> assertEquals(expectedResult, actual));
+
         verify(eventPublisher).publishEvent(any(EntityEvent.class));
         verifyNoMoreInteractions(eventPublisher, userService);
     }

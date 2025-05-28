@@ -1,6 +1,7 @@
 package com.dmdev.spring.integration.database.repository;
 
 import com.dmdev.spring.database.entity.Company;
+import com.dmdev.spring.database.repository.CompanyRepository;
 import com.dmdev.spring.integration.annotation.IT;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,13 @@ class CompanyRepositoryTest {
 
     private final EntityManager entityManager;
     private final TransactionTemplate transactionTemplate;
+    private final CompanyRepository companyRepository;
+
+    @Test
+    void checkFindByQueries() {
+        companyRepository.findByName("Google");
+        companyRepository.findAllByNameContainingIgnoreCase("a");
+    }
 
     @Test
     void findById() {

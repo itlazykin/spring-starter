@@ -25,11 +25,14 @@ public class TransactionBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         Class<?> beanClass = transactionBeans.get(beanName);
         if (beanClass != null) {
-            return Proxy.newProxyInstance(beanClass .getClassLoader(), bean.getClass().getInterfaces(),
+            return Proxy.newProxyInstance(beanClass.getClassLoader(), bean.getClass().getInterfaces(),
                     (proxy, method, args) -> {
                         System.out.println("Open transaction");
                         try {
                             return method.invoke(bean, args);
+                        } catch (Exception exception) {
+                            System.out.println("Rollback transaction");
+                            throw exception;
                         } finally {
                             System.out.println("Close transaction");
                         }

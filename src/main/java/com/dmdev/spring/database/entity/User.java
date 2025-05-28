@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@ToString(exclude = "userChats")
+@EqualsAndHashCode(of = "username")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
